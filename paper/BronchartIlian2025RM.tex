@@ -209,42 +209,88 @@ for both general category recognition and specific instance identification.
 It can be used to classify segmented object regions by comparing their embeddings to a database of 
 known objects and even shows strong performance in segmentation tasks when augmented with a simple linear layer.
 
-% \section{Methodology}%
-% \label{sec:methodology}
+\section{Methodology}
+\label{sec:methodology}
 
-% % TODO: (phase 5 - methodology)
+The research will be conducted in an Agile manner, whereby iterative cycles (sprints) will be employed 
+to ensure flexibility and continual improvement throughout the project.
+This approach ensures that different aspects of the project van be developed and refined in parallel, 
+as well as allowing for changes based on feedback and interim results.
+New tasks are added to a Trello backlog as the project progresses, and will be picked up and finished throughout the sprints.
 
-% Here you describe how you plan to conduct the research. Divide the research into different phases and try to formulate what concrete deliverable(s) are the result of each phase.
+The project will be divided into five main phases, each with its own objectives and deliverables: 
+\begin{enumerate}
+    \item \textbf{Research and Solution Exploration:} 
+    The aim of this initial phase is to thoroughly understand existing eyetracking analysis methods, 
+    relevant computer vision techniques, and to identify different solution strategies. 
+    Activities include an iterative literature review and the conceptual design of various analyis pipelines.
+    The key deliverable of this phase is a documented analysis of state-of-the-art techniques and a selected solution strategy 
+    that will inform the development of both the subsequent prototype application, experimental setup and automated analysis methods.
+    \item \textbf{Prototype Application Development:}
+    The objective here is to develop a functional prototype application that allows trainers to annotate objects within the Care-lab simulation environments.
+    This tool is required both to create a labeled ground-truth dataset for the analysis methods, and to create training datasets for the computer vision models.
+    Here, the aim is to deliver a user-friendly software tool that enables trainers to import eyetracking recordings, define simulation rooms and objects of interest, and annotate the objects in various recordings.
+    While the application should be expandable to support the final analysis methods and a visualisation dashboard, their implementation in the prototype are out of scope for this thesis.
+    \item \textbf{Experimental Data Collection:}
+    This phase focuses on gathering high-quality data from the Care-lab under controlled conditions. 
+    This means that the recordings will not comprise real training sessions, but rather experiments where students will be asked to observe medical 
+    domain-specific objects in the environment where different variables are controlled for.
+    These variables include the nature of the objects, the distance from the eyetracker the objects, and the effect of varying backgrounds on detection accuracy.
+    This phase delivers both a set of eyetracking recordings, and a set of recordings of the objects in the environment.
+    \item \textbf{Ground-Truth Dataset Creation:}
+    The aim is to create an accurate, frame-by-frame annotated ground-truth dataset from the experimental recordings. 
+    This involves using the developed prototype labeling-tool for manual annotation of observed objects, 
+    filtering these based on actual gaze points, and validating the results.
+    The output is a validated ground-truth dataset specifying the observed objects (if any) in each frame of the eyetracking recordings.
+    \item \textbf{Automated Analysis Implementation and Evaluation:}
+    This final phase involves implementing and rigorously evaluating the selected automated analysis pipelines 
+    against the ground-truth dataset, addressing sub-questions on system accuracy.
+    Activities include implementing various approaches for object detection, segmentation and image embedding and quantitatively 
+    assessing their performance using metrics such as precision, recall and F1-score. 
+    The deliverables are a comparative performance analysis of these methods, and a validated PoC system demonstrating automated analysis capabilities.
+\end{enumerate}
 
-% Which research techniques are you going to apply to answer each of your research questions? Are you using literature study, interviews with stakeholders (e.g.\ for requirements analysis), experiments, simulations, comparative study, risk analysis, PoC, etc.?
+Throughout the development process, regular meetings with the promoter and co-promoter will provide feedback, guiding the iterative refinement of the solution.
 
-% Does your topic fall under one of the typical types of bachelor's theses discussed in the Research Methods lessons (e.g., comparative study or risk analysis)? Then also make sure that we clearly find the different steps that we expect in this kind of research!
+\subsection{Tools and Technologies}
 
-% Apply agile and iterative methods and show that there is a feedback loop between design, implementation, and evaluation. It is normal to have an overlap between consecutive phases. What's more, if all phases are planned consecutively, this is a sign that you are applying the \href{https:/commando/en.wikipedia.org/wiki/Waterfall_model}{waterfall model}.
+The following tools and technologies are planned for use:
+\begin{itemize}
+    \item \textbf{Eyetracking Hardware:} Tobii Pro Glasses 3.
+    \item \textbf{Software Development:}
+        \begin{itemize}
+            \item Backend: Python with FastAPI.
+            \item Frontend: HTMX, Jinja2, Bootstrap.
+            \item Database: SQLite with SQLAlchemy.
+            \item Dependencies: Poetry for management.
+            \item Quality Assurance: Mypy for type hinting, Ruff for linting/formatting.
+            \item Deployment: Docker for containerization.
+        \end{itemize}
+    \item \textbf{Machine Learning \& Data Processing:}
+        \begin{itemize}
+            \item Libraries: PyTorch, Ultralytics (for YOLO, FastSAM), Transformers (for DINO, Grounding DINO), OpenCV, Pandas, NumPy, scikit-learn.
+            \item Models: SAM 2, FastSAM, DINOv2, YOLO (various versions).
+        \end{itemize}
+    \item \textbf{Development Environment:} Visual Studio Code, Jupyter Notebooks for experiments.
+    \item \textbf{Version Control:} Git and GitHub.
+    \item \textbf{Project Management:} Trello.
+    \item \textbf{Computing Resources:} Personal development machine (Ryzen 7 7700X, 32GB RAM, NVIDIA RTX 4090).
+\end{itemize}
 
-% Avoid research techniques that cannot deliver objective, measurable results. Surveys, for example, are usually \textbf{not suitable} for a bachelor's thesis in computer science. The answers are more opinions than facts and in practice it also turns out to be particularly difficult to find enough respondents. Students who want to conduct a survey usually also do not have a good definition of the population, so it cannot be demonstrated that any results are representative. For gathering requirements, surveys and/or interviews with stakeholders may be suitable.
+\subsection{Timeline}
 
-% After reading this part, it should be clear to the supervisors that your bachelor's thesis will also contain sufficient technical depth. It would not be correct if a bachelor's thesis in computer science could also be carried out by, for example, a marketing student.
+The project is planned to be completed between February 9, 2026 and May 30, 2026, with a total of 8 sprints of 2 weeks each.
+Given that the internship was already completed in the first semester, three full days of work per week are set aside for the thesis.
 
-% You also describe which tools (hardware, software, services, etc.) you think you will use or develop for this.
+The Gantt diagram in Figure~\ref{fig:gantt} provides a projection of the timeline for each phase including its subtasks.
+Not included in the diagram is the writing of the final report, which will be done in parallel with the project.
+The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
 
-% Also try to make a time estimate by giving a deadline for each phase. Allow sufficient time for the most important phases of your research, i.e.\ developing your own contribution (building PoC, conducting experiments, etc.). Keep in mind that you can typically work on your bachelor's thesis one day a week. This means that statements like ``this phase will take two weeks'' are very ambiguous. Does this mean that you will actually work on this phase for two days? Or ten working days spread over a number of weeks? Make sure it is clear what you mean exactly!
-
-% % Snippet for a figure that can e.g. be used to include a Gantt diagram.
-% %
-% % The figure is included in the figure* environment to spread it over both
-% % columns for better readability. Try not to manipulate the positioning of
-% % figures (e.g., with [ht!]), but always provide a meaningful caption and label,
-% % and refer to it in the text.
-% %
-% % If you include an image from a source, you must cite the source in the caption
-% % (command \autocite).
-% %
-% % \begin{figure*}
-% %   \centering
-% %   \includegraphics[width=\textwidth]{example-image-16x9}
-% %   \caption{\label{fig:gantt}Gantt diagram of the research phases and milestones.}
-% % \end{figure*}
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{gantt.png}
+  \caption{\label{fig:gantt}Gantt diagram of the research phases and milestones for each sprint.}
+\end{figure*}
 
 % \section{Expected results}%
 % \label{sec:expected-results}
