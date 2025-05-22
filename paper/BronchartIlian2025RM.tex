@@ -130,26 +130,84 @@ The pursuit of this objective will be structured through the following key-deliv
     The system's performance in correctly determining the observed objects and measuring gaze duration will be evaluated against the aforementioned ground-truth dataset using established metrics (e.g., precision, recall, F1-score).
 \end{enumerate}
 
-% \section{Literature Review}%
-% \label{sec:literature review}
+\section{Literature Review}
+\label{sec:literature review}
 
-% % TODO: (phase 3-4) write out the literature review 
+\subsection{Existing Solutions for Eyetracking Analysis}
 
-% Here you describe the \emph{state-of-the-art} in your chosen research domain, i.e.\ an introductory, continuous text about the research domain of your bachelor's thesis. Each statement is based on and cites \emph{professional literature}, and not on popularizing texts for a broad audience. What is the current state of affairs in this domain, and what are any open questions (which may have been the reason for your research question!)?
+The analyses of eyetracking data is a complex process encompassing various steps. 
+Consequently, several existing software packages are available that automate and visualize these steps.
 
-% You may further divide this section into subsections if this can clarify the structure of the text.
+One of the most widely used software packages is Tobii Pro Lab, which offers functionalities for importing, analyzing, and visualizing eyetracking data.
+This software can calculate various metrics related to fixations and Areas of Interest (AOIs) \autocite{Tobii2025a}.
+Additionally, it provides a range of visualizations such as heatmaps and scanpaths \autocite{Tobii2025b}. 
+Heatmaps display the density of fixations in a particular area, while scanpaths visualize the sequence of fixations over time.
+However, Tobii Pro Lab lacks functionality to automatically detect AOIs, requiring manual definition for each recording.
+Moreover, it is a commercial product with an annual license fee. 
+The limitations of this software make it unsuitable for the specific needs of the Care-lab.
 
-% Have similar studies been conducted? What do they conclude? What is the difference with your research?
+Another frequently used software package is iMotions, an all-in-one platform for collecting, analyzing andd visualizing biometric data.
+This software is divided into different modules, including an eyetracking module and an `Automated AOI' module \autocite{iMotions2025a}.
+With this module, the user can click on an AOI to manually define it, after which the AOI is automatically tracked throughout the rest of the recording.
+Although this is more advanced than Tobii Pro Lab, it still requires manual intervention within each recording. If one has many recordings, this can become a time-consuming process.
+Additionally, iMotions is also a commercial product with an annual license, where each separate module is available starting from €3,400 per year \autocite{iMotions2025b}.
 
-% Refer to the literature every time you introduce a term or assertion about the domain! Think carefully about which works you refer to and why.
+\subsection{Existing Implementations using Computer Vision}
 
-% Take care of correct literature references! A citation belongs \emph{within} the sentence where you refer that source, not outside it, for example \autocite{Hykes2013}! Make a reference immediately when you use a source. So do \emph{not} do this at the end of a long paragraph. Never base too much consecutive text on the same source.
+Recent advancements in deep learning have enhanced eye-tracking analysis applications, specifically in the context of object detection in dynamic and complex environments.
+\textcite{Cho2024} introduced the ISGOD system, which integrates eye movements and object detection for quality inspection in production 
+environments, enabling real-time analysis despite variable positions and movements. 
+This system employs object detection models and pose-estimation techniques to track objects and their orientations.
 
-% If you collect information about sources in Jab\-Ref, make sure that all necessary information is present to find the source (as discussed extensively in the Research Methods lessons).  Use bibla\footnote{\url{https://github.com/MrClassicT/bibla}, a {Bib\LaTeX} linter, to install with command \texttt{pip install bibla}} to check your Bib\TeX-file for common mistakes and errors.
+\textcite{Cederin2023} investigated automatic object detection and tracking in eye-tracking analyses and improved accuracy by applying motion deblurring techniques. 
+They used DeblurGAN-v2 for motion deblurring and combined a DINO object detector with the StrongSORT tracker to achieve their best results.
 
-% % Use the following commands to cite references:
-% % \autocite{BIBTEXKEY} -> (Author, year)
-% % \textcite{BIBTEXKEY} -> Author (year)
+Additionally, \textcite{Kulyk2023} combined object detection with eye-tracking data in a virtual art exhibition to identify visitor interests and visual points of attention.
+
+\subsection{Machine Learning Models}
+
+Computer Vision, a subfield of Artificial Intelligence enabling machines to interpret visual information from images or videos, has recently seen rapid advancements. 
+This research will leverage state-of-the-art techniques in object detection, segmentation, and image embedding.
+
+\subsubsection{Object Detection}
+
+Modern object detection has largely shifted from traditional feature-based methods to deep learning approaches.
+The goal of object detection is to identify and localize objects within an image using bounding boxes.
+Convolutional Neural Network (CNN) based models like \textbf{YOLO (You Only Look Once)} by \textcite{Redmon2016} and 
+its subsequent versions (e.g., \textbf{YOLOv11} by \textcite{Khanam2024}) are prominent due to their real-time processing capabilities.
+This makes them suitable for applications that process a large number of images, such as provided by eyetracking glasses.
+\textbf{Mask R-CNN} by \textcite{He2018} extends detection to instance segmentation, providing pixel-level masks for each detected object.
+
+More recently, transformer-based architectures have shown promise in object detection. 
+Models such as \textbf{DETR (DEtection TRansformer)} by \textcite{Carion2020} and its successor \textbf{DINO} by \textcite{Zhang2022} 
+leverage attention machanisms for improved understanding of object relationships and context.
+A particularily relevan advancement is \textbf{Grounding DINO} by \textcite{Liu2023}, an open-set object detection model that can identify objects based on natural language text prompts.
+This offers the potential to detect diverse objects within the Care-lab without the need for retraining, although its large size currently results in slower inference speeds compared to models like YOLO \autocite{Son2024}.
+
+\subsubsection{Segmentation}
+
+For precise object localization beyond bounding boxes, segmentation techniques can be employed.
+The \textbf{Segment Anything Model (SAM)} by Meta AI \autocite{Kirillov2023}, 
+and its successor \textbf{SAM 2} by \textcite{Ravi2024}, represent a shift towards promptable semgentation.
+These models can generate masks based on various inputs (points, boxes, text) with zero-shot 
+generalization, meaning they do not require retraining on domain-specific data.
+SAM 2 notably introduces video segmentation capabilities and improved speed, making it highly relevant for the analysis of eyetracking recordings.
+For applications demanding even higher speeds, \textbf{FastSAM} by \textcite{Zhao2023} offers a significantly faster alternative, leveraging a YOLOv8-based architecture.
+Both FastSAM and SAM 2 are able to perform an "everything-prompt" segmentation, where all objects are segmented initially.
+These segments can then combined with gaze data to determine which objects were actually observed.
+Note that these models primarily provide masks for the objects, and do not provide any information about the object class.
+
+\subsubsection{Image Embedding}
+
+Image embedding techniques convert images into dense vector representations called feature vectors or embeddings, 
+often used for tasks like object classification and similarity search.
+These vectors can be likened to a `fingerprint' of the image, capturing its essential characteristics.
+While \textbf{CLIP (Contrastive Language-Image Pretraining )} by \textcite{Radford2021} was influential in linking images and text in a shared embedding space,
+\textbf{DINOv2} by \textcite{Oquab2024} stands out as a recent state-of-the-art model. 
+DINOv2 excels at generating orientation- and scale-invariant embeddings with strong generalization capabilities 
+for both general category recognition and specific instance identification. 
+It can be used to classify segmented object regions by comparing their embeddings to a database of 
+known objects and even shows strong performance in segmentation tasks when augmented with a simple linear layer.
 
 % \section{Methodology}%
 % \label{sec:methodology}
@@ -206,12 +264,6 @@ The pursuit of this objective will be structured through the following key-deliv
 
 % If your topic lends itself to it, you can also make suggestions for a follow-up, either further research, further building on a PoC or prototype to a final product, or possibilities to valorize or commercialize the results.
 
-% %------------------------------------------------------------------------------
-% % Bibliography
-% %------------------------------------------------------------------------------
-% % TODO: (phase 4) the referenced works must be in a BibTeX file references.bib.
-% % Use JabRef to edit the bibliography file.
-
-% \printbibliography[heading=bibintoc]
+\printbibliography[heading=bibintoc]
 
 \end{document}
