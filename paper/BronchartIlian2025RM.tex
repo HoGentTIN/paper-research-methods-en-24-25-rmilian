@@ -13,7 +13,7 @@
 \assignmenttype{Paper Research Methods: research proposal}
 \academicyear{2024-2025}
 
-\title{Automated Identification of Observed Objects and Gaze Duration Analysis using Head-Mounted Eyetracking in Healthcare Simulations.}
+\title{Automated Analysis of Observed Objects and Gaze Duration using Head-Mounted Eyetracking in Healthcare Simulations.}
 
 \author{Ilian Bronchart}
 \email{ilian.bronchart@student.hogent.be}
@@ -64,15 +64,17 @@ I'm also working on the bachelor's thesis this year. The content of this researc
 My promoter is Mr. Bert Van Vreckem. The scope and objectives presented here represent an evolution from the initial proposal submitted 
 for the bachelor's thesis, reflecting a deeper understanding gained through preliminary research and development.
 
-The original proposal focused broadly on integrating object detection and segmentation with Tobii Glasses data for automated analysis and visualization.
+The original proposal focused broadly on\\ integrating object detection and segmentation with Tobii Glasses data for automated analysis and visualization.
 Upon reflection, and while the core research question remains consistent, this\\ improved proposal refines the 
-methodology and deliverables into a more structured approach. 
+methodology and deliverables into a more structured approach.\\
 The initial research sub-questions were\\ predominantly oriented towards the solution domain, exploring specific models and\\ technical methods.
 Here, a better balance is\\ achieved by first incorporating sub-questions\\ that apply to the problem domain, such as understanding current barriers and user needs, before addressing solution-specific inquiries.
-Furthermore, where the initial proposal outlined a general user flow for the PoC, 
-this proposal articulates the overall goal through distinct, actionable sub-objectives.
+This change is also reflected in the literature review, which now includes sources underpinning the requirement for eyetracking analysis in healthcare simulations.
+
+Furthermore, where the initial proposal\\ outlined a general user flow for the\\ PoC,
+this proposal articulates the overall goal\\ through distinct, actionable sub-objectives.
 This offers a clearer roadmap with more defined milestones.
-Additionally, this proposal places emphasis on the development of the labeling tool and the subsequent creation of a ground-truth dataset as foundational steps.
+Additionally, this proposal places\\ emphasis on the development of the labeling tool and the subsequent creation of a ground-truth dataset as foundational steps.
 This aspect, while important for any credible evaluation of automated analysis methods, was less prominent in the original submission.
 
 It is acknowledged that the scope of this research is ambitious, particularly concerning the development of a 
@@ -102,8 +104,9 @@ The problem statement guiding this research is as follows: Although the Tobii ey
 students have indeed observed the relevant objects within the simulation. This deficiency in automated data processing makes the assessment of students' observational skills both time-consuming and subjective.
 
 This leads to the central research question of this study:
-\textit{How can computer vision models be integrated with eyetracking data from\\ Tobii Glasses to automatically analyze and visualize the observational performance of students in HOGENT's 360° Care-lab?}
-This overarching question will be explored through several sub-questions:
+\textit{How can computer vision models be integrated with eyetracking data from Tobii\\ Glasses to automatically analyze and visualize the observational performance of students in\\ HOGENT's 360° Care-lab?}
+
+This overarching question will be explored\\ through several sub-questions:
 \begin{itemize}
   \item What are the barriers experienced with current manual observation methods?
   \item What are the user needs for interpreting and analyzing eyetracking data in the\\ current context?
@@ -117,23 +120,20 @@ This overarching question will be explored through several sub-questions:
 
 The primary objective is to develop and evaluate a proof-of-concept (PoC) software system designed to automate the analysis of students' observational performance in the Care-lab.
 This system will integrate eyetracking data from the Tobii Pro Glasses 3 with computer vision models to identify observed critical objects and quantify the duration of gaze upon them.
-The pursuit of this objective will be structured through the following key deliverables and activities, to be completed within the timeframe of this research:
-\begin{enumerate}
-    \item \textbf{Development of a prototype labeling application:} A functional software tool will be created, featuring a user-friendly interface.
-    This application will enable trainers at the Care-lab to efficiently annotate objects\\ within the various simulation environments.
-    The output of this application will be a labeled dataset, which will serve as the foundation for training and evaluating computer vision models.
-    \item \textbf{Experimental data collection at the Care-lab:} A controlled experiment will be conducted in the Care-lab. 
-    The aim of this experiment is twofold: first, to gather eyetracking recordings from students during simulated tasks, and second, to gather recordings of the target objects within the environment to be used for training the computer vision models.
-    \item \textbf{Creation of a ground-truth dataset:} The eyetracking recordings collected from the experiment will be annotated using the developed prototype application.
-    This process will yield a ground-truth dataset that precisely identifies which critical objects were observed by participants and the duration of their gaze, serving as a benchmark for evaluating the automated analysis.
-    \item \textbf{Implementation and evaluation of automated analysis methods:} This phase consists of proof-of-concept implementations of various computer vision models, including object detection and segmentation\\ techniques.
-    The system's performance in correctly determining the observed objects and measuring gaze duration will be evaluated against the aforementioned ground-truth dataset using established metrics (e.g., precision, recall, F1-score).
-\end{enumerate}
+The pursuit of this objective will be structured through different phases as described in Section~\ref{sec:methodology}, each with their own sub-objectives and deliverables.
 
 \section{Literature Review}
 \label{sec:literature-review}
 
-\subsection{Existing Solutions for Eyetracking\\ Analysis}
+\subsection{The Role of Eyetracking in Healthcare Simulations}
+
+Historically, medical training has relied\\ on observation and self-reporting to assess student performance \autocite{Pauszek2023}.\\
+However, these methods have limitations due to a lack of accuracy in reliably reporting students' visual attention and gaze behavior. 
+Research by \textcite{Clarke2017} demonstrates that individuals generally have little awareness of their own eye movements, 
+making self-reporting an unreliable measure for determining whether critical elements were indeed observed during a simulation. 
+In contrast, eyetracking technology offers an objective method for the analysis of visual attention and gaze behavior.
+
+\subsection{Existing Solutions for\\ Eyetracking Analysis}
 
 Analysis of eyetracking data is a complex process encompassing various steps. 
 Consequently, several existing software packages are available that automate and visualize these steps.
@@ -187,7 +187,7 @@ This offers the potential to detect diverse objects within the Care-lab without 
 \subsubsection{Segmentation}
 
 For precise object localization beyond bounding boxes, segmentation techniques can be employed.
-The \textbf{Segment Anything Model (SAM)} by Meta AI \autocite{Kirillov2023}, 
+The \textbf{Segment Anything Model (SAM)} by \textcite{Kirillov2023}, 
 and its successor \textbf{SAM 2} by \textcite{Ravi2024}, represent a shift towards promptable segmentation.
 These models can generate masks based on various inputs (points, boxes, text) with zero-shot 
 generalization, meaning they do not require retraining on domain-specific data.
@@ -202,7 +202,7 @@ Note that these models primarily provide masks for the objects, and do not provi
 Image embedding techniques convert images into dense vector representations called feature vectors or embeddings, 
 often used for tasks like object classification and similarity search.
 These vectors can be likened to a textit{fingerprint} of the image, capturing its essential characteristics.
-While \textbf{CLIP (Contrastive Language-Image Pre-Training)} by \textcite{Radford2021} was\\ influential in linking images and text in a shared embedding space,
+While \textbf{CLIP (Contrastive Language-Image Pre-Training)} by \textcite{Radford2021} was influential in linking images and text in a shared embedding space,
 \textbf{DINOv2} by \textcite{Oquab2024} stands out as a recent state-of-the-art model. 
 DINOv2 excels at generating orientation- and scale-invariant embeddings with strong generalization capabilities 
 for both general category recognition and specific instance identification. 
@@ -212,45 +212,72 @@ known objects and even shows strong\\ performance in segmentation tasks when aug
 \section{Methodology}
 \label{sec:methodology}
 
-The research will be conducted in an Agile manner, whereby iterative cycles (sprints) will be employed 
-to ensure flexibility and continual improvement throughout the project.\\
+The research will be conducted in an Agile manner, whereby iterative cycles (sprints)\\ will be employed 
+to ensure flexibility and continual improvement throughout the project.
 This approach ensures that different aspects of the project can be developed and refined in parallel, 
 as well as allowing for changes based on feedback and interim results.
-New tasks are added to a Trello backlog as the project progresses, and will be addressed and completed throughout the sprints.
+New tasks are added to a Trello backlog as the project progresses, and will be addressed and completed\\ throughout the sprints.
 
-The project will be divided into five main\\ phases, each with its own objectives and deliverables: 
-\begin{enumerate}
-    \item \textbf{Research and Solution Exploration:}\\
-    The aim of this initial phase is to thoroughly understand existing eyetracking analysis\\ methods, 
-    relevant computer vision\\ techniques, and to identify different solution strategies. 
-    Activities include an iterative literature review and the conceptual design of various analysis pipelines.
-    The key deliverable of this phase is a documented analysis of state-of-the-art techniques and a selected solution strategy 
-    that will inform the development of the prototype application, experimental setup, and automated analysis methods.
-    \item \textbf{Prototype Application Development:}\\
-    The objective here is to develop a functional prototype application that allows trainers to annotate objects within the Care-lab simulation environments.
-    This tool is required both to create a labeled ground-truth dataset for the analysis methods, and to create training datasets for the computer vision models.
-    Here, the aim is to deliver a user-friendly software tool that enables trainers to\\ import eyetracking recordings, define simulation rooms and objects of interest, and annotate the objects in various recordings.
-    While the application will be designed for future expandability to include final analysis methods and a visualization dashboard, their full implementation is out of scope for this thesis.
-    \item \textbf{Experimental Data Collection:}\\
-    This phase focuses on gathering\\ high-quality data from the Care-lab under controlled conditions. 
-    This means that the recordings will not comprise real\\ training sessions, but rather experiments\\ where students will be asked to observe\\ medical 
-    domain-specific objects in the environment where different variables are controlled for.
-    These variables include the nature of the objects, the distance of the objects from the eye tracker, and the effect of varying backgrounds on detection accuracy.
-    This phase delivers both a set of eyetracking recordings, and a set of recordings of the objects in the environment.
-    \item \textbf{Ground-Truth Dataset Creation:}\\
-    The aim is to create an accurate, frame-by-frame annotated ground-truth dataset from the experimental recordings. 
-    This involves using the developed prototype labeling tool for manual annotation of observed objects, 
-    filtering these based on actual gaze points, and validating the results.
-    The output is a validated ground-truth dataset specifying the observed objects (if any) in each frame of the eyetracking recordings.
-    \item \textbf{Automated Analysis Implementation and Evaluation:}\\
-    This final phase involves implementing and rigorously evaluating the selected\\ automated analysis pipelines 
-    against the\\ ground-truth dataset, addressing\\ sub-questions on system accuracy.
-    Activities include implementing various\\ approaches for object detection, segmentation, and image embedding, and quantitatively 
-    assessing their performance using metrics such as precision, recall and F1-score. 
-    The deliverables are a comparative performance analysis of these methods, and a validated PoC system demonstrating\\ automated analysis capabilities.
-\end{enumerate}
+During the development process,\\ regular meetings with the promoter and\\ co-promoter will provide feedback, guiding the iterative refinement of the solution.
+The project will be divided into five main phases as visualized in Figure~\ref{fig:methodology}, each with their own objectives and deliverables.
 
-Throughout the development process, regular meetings with the promoter and co-promoter will provide feedback, guiding the iterative refinement of the solution.
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{methodology.png}
+  \caption[]{\label{fig:methodology}
+    Overview of the project phases, their deliverables, and the relationships between them.
+  }
+\end{figure*}
+
+\paragraph{Research and Solution Exploration\\}
+The aim of this initial phase is to thoroughly understand existing eyetracking analysis methods, 
+relevant computer vision techniques, and to identify different solution strategies. 
+Activities include an iterative literature review and the conceptual design of various analysis pipelines.
+The key deliverable of this phase is a documented analysis of state-of-the-art techniques and a selected solution strategy 
+that will inform the development of experimental setup and automated analysis methods.
+Additionally, this phase will include a user needs analysis to identify the requirements and expectations of the trainers at the Care-lab, 
+which will guide the design of the prototype application.
+
+\paragraph{Prototype Application Development\\}
+The objective in this phase is to develop a functional prototype application that allows trainers to annotate objects within the Care-lab simulation environments.
+This tool is required both to create a labeled ground-truth dataset for the analysis methods, and to create training datasets for the computer vision models.
+Here, the aim is to deliver a user-friendly software tool that enables trainers to import eyetracking recordings, define simulation rooms and objects of interest, and annotate the objects in various recordings.
+While the application will be designed for future expandability to include final analysis methods and a visualization dashboard, their full implementation is out of scope for this thesis.
+
+\paragraph{Experimental Data Collection\\}
+This phase focuses on gathering high-quality data from the Care-lab under controlled conditions. 
+This means that the recordings will not comprise real training sessions, but rather experiments where students will be asked to observe medical 
+domain-specific objects in the environment where different variables are controlled for.
+These variables include the nature of the objects, the distance of the objects from the eye tracker, and the effect of varying backgrounds on detection accuracy.
+This phase delivers both a set of eyetracking recordings, and a set of recordings of the objects in the environment.
+
+\paragraph{Ground-Truth Dataset Creation\\}
+Here, the aim is to create an accurate, frame-by-frame annotated ground-truth dataset from the experimental recordings. 
+This involves using the developed prototype labeling tool for manual annotation of observed objects, 
+filtering these based on actual gaze points, and validating the results.
+The output is a validated ground-truth dataset specifying the observed objects (if any) in each frame of the eyetracking recordings.
+
+\paragraph{Automated Analysis Implementation and Evaluation\\}
+This final phase involves implementing and rigorously evaluating the selected automated analysis pipelines 
+against the ground-truth dataset, addressing sub-questions on system accuracy.\\
+Activities include implementing various\\ approaches for object detection, segmentation, and image embedding, and quantitatively\\
+assessing their performance using metrics such as precision, recall and F1-score. 
+The deliverables are a comparative performance analysis of these methods, and a validated PoC system demonstrating automated analysis capabilities.
+
+\subsection{Timeline}
+
+The project is planned to be completed between February 9, 2026 and May 30, 2026, with a total of 8 sprints of 2 weeks each.
+Given that the internship was already completed in the first semester, three full days of work per week are set aside for the thesis.
+
+The Gantt diagram in Figure~\ref{fig:gantt} provides a projection of the timeline for each phase including its subtasks.
+Not included in the diagram is the writing of the final report, which will be done in parallel with the project.
+The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\textwidth]{gantt.png}
+  \caption{\label{fig:gantt}Gantt diagram of the research phases and milestones for each sprint.}
+\end{figure*}
 
 \subsection{Tools and Technologies}
 
@@ -277,21 +304,6 @@ The following tools and technologies are\\ planned for use:
     \item \textbf{Computing Resources:} Personal development machine (Ryzen 7 7700X, 32GB RAM, NVIDIA RTX 4090).
 \end{itemize}
 
-\subsection{Timeline}
-
-The project is planned to be completed between February 9, 2026 and May 30, 2026, with a total of 8 sprints of 2 weeks each.
-Given that the internship was already completed in the first semester, three full days of work per week are set aside for the thesis.
-
-The Gantt diagram in Figure~\ref{fig:gantt} provides a projection of the timeline for each phase including its subtasks.
-Not included in the diagram is the writing of the final report, which will be done in parallel with the project.
-The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{gantt.png}
-  \caption{\label{fig:gantt}Gantt diagram of the research phases and milestones for each sprint.}
-\end{figure*}
-
 \section{Expected Results}
 \label{sec:expected-results}
 
@@ -301,7 +313,8 @@ This application will demonstrate the feasibility of integrating computer vision
 
 Regarding the performance of the automated analysis methods, it is hypothesized that object detection models (e.g., fine-tuned YOLO variants or DINO) will yield the most robust and accurate results on the evaluation dataset.
 This expectation stems from their inherent design to both localize and classify specific object categories for which they have been trained.
-While open-set recognition models like Grounding DINO, or classification approaches based on image embeddings, offer flexibility by not requiring explicit retraining for every new object, they are anticipated to face challenges in this context.\\
+
+While open-set recognition models like\\ Grounding DINO, or classification approaches\\ based on image embeddings, offer flexibility by not requiring explicit retraining for every new object, they are anticipated to face challenges in this context.\\
 The simulated environments contain a multitude of objects, many of which will be \textit{unknown} or irrelevant to the specific set of target objects for a given simulation.
 This characteristic of the problem may lead to a higher number of false positives for pure classification models, a known challenge in open-set recognition tasks where the system must distinguish between known classes and a wide array of unseen distractors.
 Object detection models, particularly if provided with sufficient training examples of the critical objects, are expected to be more discriminative and less prone to misclassification or false positives.
@@ -321,6 +334,9 @@ As computer vision is a rapidly developing\\ field, it is also anticipated that 
 These could potentially allow for the analysis of eyetracking recordings with reduced reliance on extensive, domain-specific training datasets, though current computational costs for such large models can be a limiting factor. 
 This research, therefore, not only addresses a current need but also positions the Care-lab to leverage future technological\\ progress in this domain.
 
+\begingroup
+\setlength{\emergencystretch}{3em}
 \printbibliography[heading=bibintoc]
+\endgroup
 
 \end{document}
