@@ -53,28 +53,26 @@ Ultimately, this research aims to provide trainers with an objective, data-drive
 student observational skills, thereby enhancing feedback mechanisms and improving the overall efficacy of healthcare simulation training.
 \end{abstract}
 
-\tableofcontents
-
 \bigskip
 
 \paragraph{Remark}
 
-I'm also working on the bachelor's thesis this year. The content of this research proposal also serves as the subject for my bachelor thesis. 
+This proposal builds on the one submitted in EP2, incorporating feedback on language and rewriting overly LLM-polished sections in my own words. 
+It has also been shortened to meet the five-page limit.
+
+The content of this research proposal also serves as the subject for my bachelor thesis. 
 My promoter is Mr. Bert Van Vreckem. The scope and objectives presented here represent an evolution from the initial proposal submitted 
 for the bachelor's thesis, reflecting a deeper understanding gained through preliminary research and development.
 
 The original proposal focused broadly on\\ integrating object detection and segmentation with Tobii Glasses data for automated analysis and visualization.
-Upon reflection, and while the core research question remains consistent, this\\ improved proposal refines the 
-methodology and deliverables into a more structured approach.\\
 The initial research sub-questions were\\ predominantly oriented towards the solution domain, exploring specific models and\\ technical methods.
-Here, a better balance is\\ achieved by first incorporating sub-questions\\ that apply to the problem domain, such as understanding current barriers and user needs, before addressing solution-specific inquiries.
+Here, a better balance is\\ achieved by first incorporating sub-questions\\ that apply to the problem domain, 
+such as understanding current barriers and user needs, before addressing solution-specific inquiries.
 This change is also reflected in the literature review, which now includes sources underpinning the requirement for eyetracking analysis in healthcare simulations.
 
 Furthermore, where the initial proposal\\ outlined a general user flow for the\\ PoC,
 this proposal articulates the overall goal\\ through distinct, actionable sub-objectives.
 This offers a clearer roadmap with more defined milestones.
-Additionally, this proposal places\\ emphasis on the development of the labeling tool and the subsequent creation of a ground-truth dataset as foundational steps.
-This aspect, while important for any credible evaluation of automated analysis methods, was less prominent in the original submission.
 
 It is acknowledged that the scope of this research is ambitious, particularly concerning the development of a 
 prototype labeling application, experimental work, and the implementation and evaluation of multiple computer vision models.
@@ -151,14 +149,12 @@ and rotation-independent feature vectors which can be used for classification an
 
 \subsection{Existing Implementations using\\ Computer Vision}
 
-The aforementioned advancements have enhanced eyetracking analysis applications,\\ specifically in the context of object detection in dynamic and complex environments.
+The aforementioned advancements have enhanced eyetracking analysis applications in dynamic and complex environments.
 \textcite{Cho2024} introduced the ISGOD system, which integrates eye movements and object detection for quality inspection in production 
 environments, enabling real-time analysis despite variable positions and movements. 
 This system employs object detection models and pose-estimation techniques to track objects and their orientations.
-
 \textcite{Cederin2023} investigated automatic object detection and tracking in\\ eyetracking analyses and improved accuracy by applying motion deblurring techniques.\\ 
 They used DeblurGAN-v2 for motion deblurring and combined a DINO object detector with the\\ StrongSORT tracker to achieve their best results.
-
 Additionally, \textcite{Kulyk2023} combined object detection with eyetracking data in a virtual art exhibition to identify visitor interests and visual points of attention.
 
 \section{Methodology}
@@ -211,17 +207,6 @@ The project is planned to be completed between February 9, 2026 and May 30, 2026
 Given that the internship was already completed in the first semester, three full days of work per week are set aside for the thesis.
 The work will be split up into 8 sprints of two weeks each, with the first 7 sprints dedicated to the phases described above.
 The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
-
-\subsection{Tools and Technologies}
-
-The following tools and technologies are\\ planned for use:
-\begin{itemize}
-    \item \textbf{Eyetracking Hardware:} Tobii Pro Glasses 3.
-    \item \textbf{Software Development:} Python (FastAPI, Poetry), HTMX, Jinja2, Bootstrap, SQLite (SQLAlchemy), Mypy, Ruff, Docker.
-    \item \textbf{Machine Learning \& Data Processing:} PyTorch, Ultralytics (YOLO, FastSAM), Transformers (DINO, Grounding DINO), OpenCV, Pandas, NumPy, scikit-learn.
-    \item \textbf{Development Environment:} Visual Studio Code, Jupyter Notebooks, Git, GitHub. 
-    \item \textbf{Computing Resources:} Personal development machine (Ryzen 7 7700X, 32GB RAM, NVIDIA RTX 4090).
-\end{itemize}
 
 \section{Expected Results}
 \label{sec:expected-results}
