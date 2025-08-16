@@ -49,8 +49,8 @@ performance.
 
 It is expected that the PoC software will successfully demonstrate the automated identification 
 of objects viewed by students and the precise measurement of their gaze duration. 
-Ultimately, this research aims to provide trainers with an objective, data-driven tool to more effectively assess 
-student observational skills, thereby enhancing feedback mechanisms and improving the overall efficacy of healthcare simulation training.
+This research aims to provide trainers with an objective, data-driven tool to more effectively assess 
+student observational skills. This will enhance feedback and improve the overall efficacy of healthcare simulation training.
 \end{abstract}
 
 \bigskip
@@ -64,7 +64,7 @@ Additionally, the bibliography has been cleaned up to remove superfluous fields.
 
 The content of this research proposal also\\ serves as the subject for my bachelor thesis. 
 My promoter is Mr. Bert Van Vreckem. The scope and objectives presented here represent an evolution from the initial proposal submitted 
-for the bachelor's thesis, reflecting a deeper understanding gained through preliminary research and development.
+for the bachelor's thesis. The changes reflect a better understanding gained through research and development.
 
 The original proposal focused broadly on\\ integrating object detection and segmentation with Tobii Glasses data for automated analysis and visualization.
 The initial research\\ sub-questions were predominantly oriented towards the solution domain, exploring specific\\ models and technical methods.
@@ -72,7 +72,7 @@ Here, a better balance is\\ achieved by first incorporating sub-questions\\ that
 such as understanding current barriers and user needs, before addressing solution-specific inquiries.
 This change is also reflected in the literature review, which now includes sources underpinning the requirement for eyetracking analysis in healthcare simulations.
 
-Furthermore, where the initial proposal\\ outlined a general user flow for the\\ PoC,
+Additionally, where the initial proposal\\ outlined a general user flow for the\\ PoC,
 this proposal articulates the overall goal\\ through distinct, actionable sub-objectives.
 This offers a clearer roadmap with more defined milestones.
 
@@ -89,7 +89,7 @@ The observational skills of healthcare providers are fundamental, not only for a
 At HOGENT, the 360° Care-lab offers an environment where students engage in realistic scenarios,\\ such as a simulated hospital room with a mannequin patient, or a patient's living room.
 Here, students practice interacting with patients and learn to identify important visual cues in their environment.
 Examples range from recognizing a soft drink bottle on the nightstand of a patient with diabetes, to observing a picture frame on the wall that may serve as a conversation starter.
-This training aims to connect a student's theoretical knowledge with practical skills, thereby preparing them for the complexities of real-world healthcare settings.
+This training aims to connect a student's theoretical knowledge with practical skills, thus preparing them for the complexities of real-world healthcare settings.
 
 Despite the advancements in\\ simulation-based training, the evaluation of students' observational skills often relies on traditional methods such as student self-reporting\\ and direct observation by instructors.\\
 These methods are inherently subjective and may not reliably capture the full spectrum of a student's performance.
@@ -126,10 +126,10 @@ The pursuit of this objective will be structured through different phases as des
 \subsection{The Role of Eyetracking in Healthcare Simulations}
 
 Historically, medical training has relied\\ on observation and self-reporting to assess student performance \autocite{Pauszek2023}.\\
-However, these methods have limitations due to a lack of accuracy in reliably reporting students' visual attention and gaze behavior. 
+However, these methods have limitations due to a lack of accuracy in reliably reporting students' visual attention. 
 Research by \textcite{Clarke2017} demonstrates that individuals generally have little awareness of their own eye movements, 
 making self-reporting an unreliable measure for determining whether critical elements were indeed observed during a simulation. 
-In contrast, eyetracking technology offers an objective method for the analysis of visual attention and gaze behavior.
+In contrast, eyetracking technology offers an objective method for the analysis of gaze behavior.
 
 \subsection{Existing Solutions for\\ Eyetracking Analysis}
 
@@ -153,17 +153,16 @@ and rotation-independent feature vectors which can be used for classification an
 
 The aforementioned advancements have enhanced eyetracking analysis applications in dynamic and complex environments.
 \textcite{Cho2024} introduced the ISGOD system, which integrates eye movements and object detection for quality inspection in production 
-environments, enabling real-time analysis despite variable positions and movements. 
-This system employs object detection models and pose-estimation techniques to track objects and their orientations.\\
+environments. This enables real-time analysis despite variable positions and movements. 
+The system uses object detection models and pose-estimation techniques to track objects and their orientations.\\
 \textcite{Cederin2023} investigated automatic object detection and tracking in eyetracking analyses and improved accuracy by applying motion deblurring techniques.\\ 
 They used DeblurGAN-v2 for motion deblurring and combined a DINO object detector with the\\ StrongSORT tracker to achieve their best results.
-Additionally, \textcite{Kulyk2023} combined object detection with eyetracking data in a virtual art exhibition to identify visitor interests and visual points of attention.
+Finally, \textcite{Kulyk2023} combined object detection with eyetracking data in a virtual art exhibition to identify visitor interests and visual points of attention.
 
 \section{Methodology}
 \label{sec:methodology}
 
-The research will be conducted in an Agile manner, whereby iterative cycles (sprints) will be employed 
-to ensure flexibility and continual improvement.
+The research will be conducted in an Agile manner, whereby iterative cycles (sprints) will be employed.
 Regular meetings with the promoter and\\ co-promoter will guide iterative refinement of the solution.
 The project will be divided into five main phases as visualized in Figure~\ref{fig:methodology}, each with their own objectives and deliverables.
 
@@ -213,8 +212,8 @@ The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or
 \section{Expected Results}
 \label{sec:expected-results}
 
-Based on the proposed methodology and the current state-of-the-art in computer vision, several outcomes are anticipated from this research.
-The primary expectation is the successful development of a functional PoC software application. 
+Based on the proposed methodology and the current state-of-the-art in computer vision, several outcomes are anticipated.
+The primary expectation is the successful development of a functional PoC software application.\\
 This application will demonstrate the feasibility of integrating computer vision models for automated analysis of observational performance in healthcare simulations.
 
 Regarding the performance of the automated analysis methods, it is hypothesized that object detection models (e.g., fine-tuned YOLO variants or DINO) will yield the most robust and accurate results on the evaluation dataset.
@@ -240,9 +239,9 @@ The instructors at HOGENT's 360° Care-lab will benefit from the clear indicatio
 objective assessment methods are achievable.
 
 As computer vision is a rapidly developing\\ field, it is also anticipated that future advancements, 
-particularly the continued rise of large foundation models, may enable even more sophisticated analysis methods. 
+particularly the continued rise of large foundation models, may enable more sophisticated analysis methods. 
 These could potentially allow for the analysis of eyetracking recordings with reduced reliance on extensive, 
-domain-specific training datasets, though current computational costs for such large models can be a limiting factor. 
+domain\\-specific training datasets. That being said, current computational costs for such large models can be a limiting factor. 
 This research, therefore, not only addresses a current need but also positions the Care-lab to leverage future technological\\ progress in this domain.
 
 \begingroup
