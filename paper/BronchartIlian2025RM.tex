@@ -74,10 +74,8 @@ This change is also reflected in the literature review, which now includes sourc
 
 Additionally, where the initial proposal\\ outlined a general user flow for the\\ PoC,
 this proposal articulates the overall goal\\ through distinct, actionable sub-objectives.
-This offers a clearer roadmap with more defined milestones.
 
-It is acknowledged that the scope of this research is ambitious, particularly concerning the development of a 
-prototype labeling application, experimental work, and the implementation and evaluation of multiple computer vision models.
+It is acknowledged that the scope of this research is ambitious.
 This ambition is supported by a dedicated work schedule: having completed my internship in the first semester, the second semester allows for a more intensive focus
 on the bachelor's thesis, with significantly more dedicated time per week than is typical for students undertaking their thesis concurrently with their internship.
 Moreover, this ambitious scope also serves as an opportunity to demonstrate a well-rounded skillset as a software engineer, showcasing expertise in front-end development, back-end development, and data science.
@@ -159,6 +157,13 @@ The system uses object detection models and pose-estimation techniques to track 
 They used DeblurGAN-v2 for motion deblurring and combined a DINO object detector with the\\ StrongSORT tracker to achieve their best results.
 Finally, \textcite{Kulyk2023} combined object detection with eyetracking data in a virtual art exhibition to identify visitor interests and visual points of attention.
 
+\subsection{Timeline}
+
+The project is planned to be completed between February 9, 2026 and May 30, 2026, with a total of 8 sprints of 2 weeks each.
+Given that the internship was already completed in the first semester, three days per week are set aside.
+The work will be split up into 8 sprints of two weeks each, with the first 7 sprints dedicated to the phases described above.
+The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
+
 \section{Methodology}
 \label{sec:methodology}
 
@@ -178,22 +183,27 @@ This initial phase aims to understand existing eyetracking analysis methods,
 relevant computer vision techniques, and to identify different solution strategies. 
 The key deliverable of this phase is a documented analysis of state-of-the-art techniques and a selected solution strategy 
 that will inform the experimental setup and automated analysis methods.
+This phase runs throughout sprint 1 and 2, ending on 06/03/2026.
 
 \paragraph{Prototype Application Development\\}
 The objective is to develop a functional prototype application for annotating objects within the Care-lab simulation environments.
 This tool will enable trainers to import eyetracking recordings, define simulation rooms and objects, and annotate them, 
 serving as a foundation for ground-truth dataset creation.
+This phase runs throughout the first four sprints and ends on 03/04/2026.
+
 
 \paragraph{Experimental Data Collection\\}
 This phase focuses on gathering high-quality data from the Care-lab under controlled conditions. 
 Students will be asked to observe medical domain-specific objects in the environment where the nature of the objects, 
 the distance of the objects from the eye tracker, and the effect of varying backgrounds on detection accuracy are controlled for.
 The deliverables are a set of eyetracking recordings and recordings of the objects in the environment.
+Experimental data collection is planned for sprint 3 and 4, finishing before 03/04/2026.
 
 \paragraph{Ground-Truth Dataset Creation\\}
 The aim here is to create an accurate, frame-by-frame annotated ground-truth dataset from the experimental recordings. 
 The developed prototype labeling tool will be used for manual annotation of observed objects, 
 yielding a validated ground-truth dataset with observed objects for each frame.
+Building on the data collected in sprints 3 and 4, this phase will be completed during sprint 5, ending on 17/04/2026.
 
 \paragraph{Automated Analysis Implementation and Evaluation\\}
 This final phase involves implementing and rigorously evaluating the selected automated analysis pipelines 
@@ -201,13 +211,7 @@ against the ground-truth dataset.
 Activities include implementing various\\ approaches for object detection, segmentation, and image embedding, and quantitatively\\
 assessing their performance (precision, recall, F1-score, ...).
 The deliverables are a comparative performance analysis of these methods, demonstrating automated analysis capabilities.
-
-\subsection{Timeline}
-
-The project is planned to be completed between February 9, 2026 and May 30, 2026, with a total of 8 sprints of 2 weeks each.
-Given that the internship was already completed in the first semester, three full days of work per week are set aside for the thesis.
-The work will be split up into 8 sprints of two weeks each, with the first 7 sprints dedicated to the phases described above.
-The final sprint (Sprint 8) is reserved as a buffer for any unforeseen delays or additional tasks that may arise during the project.
+This phase will be completed in sprints 6 and 7, ending on 15/05/2026.
 
 \section{Expected Results}
 \label{sec:expected-results}
